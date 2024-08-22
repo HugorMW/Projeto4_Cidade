@@ -1,35 +1,44 @@
 * {
   box-sizing: border-box;
-  tre
-}
-
-body {
   margin: 0;
   padding: 0;
 }
 
-legend{
-  font-weight: bold;
-  padding: 4px;
-  font-size: 20px;
-  background: #294c71;
-  color: white;
-  margin-bottom: 10px;
-}
-h3{
-  display: flex;
-  background-color: red;
-  color: white;
-  padding: 2px 3px;
-  margin: 0 auto 5px 5px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-weight:600;
-  text-transform: uppercase;
-  font-size: 14px;
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.0em;
 }
 
-    /* Painel de navegação Horizontal */
-#background-nav {
+/* Acessibilidade */
+a:focus,
+input:focus,
+button:focus {
+  outline: 2px solid #000;
+  /* Cor de contraste alta */
+}
+
+.caixa h2,
+.caixa h3,
+.caixa p {
+  margin-bottom: 0.5em;
+}
+
+.enabled {
+  opacity: 50%;
+  transition: opacity 0.3s;
+  /* Adiciona uma transição suave */
+}
+
+.enabled:hover {
+  opacity: 100%;
+}
+
+.active {
+  opacity: 100%;
+}
+
+/* Painel de navegação Horizontal */
+header {
   order: 1;
   display: flex;
   width: 100%;
@@ -39,9 +48,8 @@ h3{
   min-width: 740px;
 }
 
-#nav-horizontal {
+nav#nav-horizontal {
   z-index: 1;
-
   display: flex;
   position: relative;
   right: 10px;
@@ -50,117 +58,479 @@ h3{
   margin-top: 130px;
 }
 
-#nav-horizontal a {
+nav#nav-horizontal a {
   height: 40px;
   display: block;
   line-height: 0px;
   padding: 20px 25px;
   color: white;
   text-decoration: none;
-  background: red;
+  background: rgb(171, 19, 19);
   font-weight: bold;
 }
-#nav-horizontal a:hover{
+
+a#nav-home {
+  background-color: #6c0220;
+  cursor: text;
+}
+
+nav#nav-horizontal a:hover {
   background-color: brown;
 }
+
+/* Botao de alto-contraste */
+#toggle-contrast {
+  align-items: flex-start;
+  top: 10px;
+  right: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+  z-index: 1000;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 60px; /* Largura mínima para os botões */
+  max-width: 150px; /* Largura máxima para os botões */
+
+}
+
+
 /* IMGs do Painel Horizontal */
 .img-logo {
-    order: 0;
-    position: relative;
-    top: 10%;
-    left: 100px;
-  }
-  .img-logo img {
-    width: 150px;
-    height: 70px;
-  }
-  
-  .img-brasil {
-    position: relative;
-    right: 70px;
-    order: 2;
-  }
-  
-  .img-brasil img {
-    width: 170px;
-    height: 170px;
-  }
-
-
-/* Pagina pricipal */
-.pag-principal{
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 850px;
-  margin-top: 20px;
+  order: 0;
+  position: relative;
+  top: 10%;
+  left: 100px;
 }
 
-/* Navs laterais */
-.nav-lateral{
-  display: flex;
-  flex-direction: column;
-  row-gap: 30px;
+.img-logo img {
+  width: 150px;
+  height: 70px;
 }
 
-.navs-lateral{
-  width: 200px;
+.img-brasil {
+  position: relative;
+  right: 70px;
+  order: 2;
 }
 
-ul{
-  list-style-type:none ;
-  margin: 0;
-  padding: 0;
+.img-brasil img {
+  width: 170px;
+  height: 170px;
 }
 
-.navs-lateral a{
-  text-decoration: none;
-  line-height: 30px;
-  display: block;
+/* Pagina de conteudos (contem as Divs de conteudo) */
+
+/* Estilo das caixas em geral */
+.caixa {
+  width: 100%;
+  background: url(./img/fundo-caixa.png);
   padding: 5px;
-  color: black;
+  margin-bottom: 15px;
+  text-align: left;
 }
-.navs-lateral a:hover{
-  background: rgb(21, 21, 169);
+
+.caixa h2 {
+  font-size: 1em;
+  background: #294c71;
+  color: #fff;
+  padding: 5px;
+}
+
+.caixa h3 {
+  display: inline-block;
   color: white;
+  background-color: #820404e9;
+  padding: 3px;
+  font-size: 0.8em;
+  text-transform: uppercase;
 }
-.text-email{
+
+/* Caixa de Conteudos-Principais (para centralizar) */
+main.conteudos-principais {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  flex-direction: row;
+  column-gap: 15px;
+  margin-top: 15px;
+}
+
+/* 1 coluna (size e position) */
+.coluna1 {
+  width: 180px;
+}
+
+/* Estilo das caixas verticais */
+.caixa.caixa-vertical {
+  width: 180px;
+  float: left;
+}
+
+/* Caixa entrevistas */
+.entrevistas {
+  background-color: white;
+}
+
+.entrevistas a {
+  font-size: 0.9em;
+  display: block;
+  padding: 3px;
+  line-height: 30px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.entrevistas a:hover {
+  background: url(./img/marcador.png) no-repeat left;
+  padding-left: 20px;
+  color: #a1a1a1;
+}
+
+/* Caixa news */
+.formulario {
+  background-color: white;
+  padding: 5px;
+}
+
+.formulario input[type="text"] {
   border: 2px solid black;
   width: 130px;
-  height: 30px;
+  height: 25px;
+  padding: 5px;
 }
 
-/* Divs de Conteudo */
-.conteudos-centrais{
+.formulario input[type="submit"] {
+  background-color: #820404e9;
+  color: white;
+  border: 2px solid black;
+  width: 70px;
+  height: 28px;
+  padding: 5px;
+}
+
+/* Coluna 2 */
+.coluna2 {
+  width: 270px;
+}
+
+/* Caixas Superiores */
+.caixa .caixa-superior img {
+  width: 100%;
+}
+
+.caixa-superior a {
+  color: #9c0101e9;
+}
+
+/* Caixa Destaque (Pag Principal) */
+.caixa-superior.pag-principal {
+  background-color: white;
+  padding: 5px;
+}
+
+/* Coluna 2 (Pag Brasil) */
+#brasil .coluna2 {
+  width: 555px;
+}
+
+a#nav-brasil {
+  background: #6c0220;
+  cursor: text;
+}
+
+/* Caixa Destaque (Pag fotos) */
+#fotos .coluna2 {
+  width: 750px;
+}
+
+a#nav-fotos {
+  background: #6c0220;
+  cursor: text;
+}
+
+/* Caixa Ultima entrevista */
+
+/* Caixas Inferiores */
+/* Caixa Mundo e Noticias Recentes */
+.caixa-inferior {
+  display: block;
+  background-color: white;
+}
+
+.lista-noticias li {
+  list-style: none;
+  padding: 2px;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.lista-noticias li a {
+  text-decoration: none;
+}
+
+.lista-noticias li a img {
+  float: left;
+  padding: 3px 3px 0;
+  width: 80px;
+}
+
+.lista-noticias li a h4 {
+  font-size: 0.8em;
+  padding: 0;
+  color: #3e7ab9;
+}
+
+.lista-noticias li a p {
+  font-size: 0.7em;
+  color: #000;
+}
+
+/* Rodapé */
+footer.rodape {
+  width: 100%;
+  background-color: #294c71;
+  color: white;
+  height: 70px;
+  line-height: 70px;
+  padding-left: 50px;
+}
+
+/* ALTO CONTRASTE */
+/* Estilos para Modo de Alto Contraste */
+body.high-contrast {
+  background-color: #000;
+  color: #fff;
+}
+
+body.high-contrast .caixa.caixa-vertical a {
+  color: #ffff00;
+  font-size: 16px;
+}
+
+body.high-contrast #title-email {
+  background-color: #000;
+  color: #ffffff;
+  padding: 3px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+body.high-contrast header {
+  background-color: #000;
+}
+
+body.high-contrast .caixa {
+  background-color: #000;
+  border: 2px solid #fff;
+}
+
+body.high-contrast .caixa-superior,
+body.high-contrast .caixa-inferior {
+  background-color: #000;
+}
+
+body.high-contrast .caixa h2,
+body.high-contrast .caixa h3,
+body.high-contrast .caixa p {
+  color: #fff;
+  font-weight: bold;
+}
+
+body.high-contrast .caixa p {
+  font-size: 14px;
+}
+
+body.high-contrast .caixa h2 {
+  background-color: #000;
+}
+
+body.high-contrast .caixa h3 {
+  background-color: #333;
+}
+
+body.high-contrast .caixa h4 {
+  color: #0077ff;
+  font-size: 14px;
+}
+
+body.high-contrast .entrevistas {
+  background-color: #000;
+}
+
+body.high-contrast .caixa a {
+  color: #ffff00;
+}
+
+body.high-contrast .caixa a:hover {
+  color: #ff0;
+}
+
+body.high-contrast img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Estilos adicionais para garantir que todos os elementos sejam legíveis em alto contraste */
+body.high-contrast input,
+body.high-contrast button,
+body.high-contrast select,
+body.high-contrast textarea {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+body.high-contrast input::placeholder,
+body.high-contrast textarea::placeholder {
+  color: #ccc;
+}
+
+body.high-contrast nav#nav-horizontal a {
+  background: #000;
+  color: #fff;
+}
+
+body.high-contrast nav#nav-horizontal a:hover {
+  background-color: #555;
+}
+
+/* Rodapé */
+body.high-contrast footer.rodape {
+  background-color: #000;
+  color: #fff;
+}
+
+/* ZOOM */
+#zoom-container {
+  position: absolute;
+  top: 50px;
+  right: 10px;
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  align-items: flex-start;
+  z-index: 1000;
 }
 
-.conteudo{
-  width: 250px;
+#zoom-in,
+#zoom-out {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 60px; /* Largura mínima para os botões */
+  max-width: 150px; /* Largura máxima para os botões */
 }
 
-.conteudo-central{
+#zoom-in:hover,
+#zoom-out:hover {
+  background-color: #555;
+}
+
+#zoom-percentage {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 60px; /* Largura mínima para o texto */
+  max-width: 150px; /* Largura máxima para o texto */
+}
+
+/* BOTAO */
+/* Estilos para o botão multifuncional */
+#multi-function-button {
+  position: absolute;
+  top: 10px;
+  right: 20px; /* Ajuste para alinhar corretamente */
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em; /* Ajustado para unidades relativas */
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  z-index: 1000;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%; /* Ajuste para impedir que ultrapasse a largura do contêiner */
+  box-sizing: border-box; /* Inclui padding e border na largura */
+  white-space: normal; /* Permite quebra de linha */
+  overflow-wrap: break-word; /* Quebra palavras longas */
+}
+
+#multi-function-button:hover {
+  background-color: #555;
+}
+
+/* Estilos para o menu de funcionalidades */
+#function-menu {
+  display: none;
+  position: absolute;
+
+  right: 20px; /* Ajuste para alinhar corretamente */
+  background-color: #333;
+  border-radius: 5px;
+  z-index: 1000;
   flex-direction: column;
+  padding: 0.5em 0; /* Ajustado para unidades relativas */
+  max-width: 100%; /* Ajuste para impedir que ultrapasse a largura do contêiner */
+  box-sizing: border-box; /* Inclui padding e border na largura */
 }
 
-.conteudo a{
-  color: red;
-  margin-left: 5px;
-}
-.conteudo p{
-  margin: 0;
-  margin-left: 5px;
+#function-menu button {
+  display: block;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em; /* Ajustado para unidades relativas */
+  cursor: pointer;
+  font-size: 1em;
+  text-align: left;
+  border-top: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%; /* Ajuste para impedir que ultrapasse a largura do contêiner */
+  box-sizing: border-box; /* Inclui padding e border na largura */
+  white-space: normal; /* Permite quebra de linha */
+  overflow-wrap: break-word; /* Quebra palavras longas */
 }
 
-/* .ultima-entrevista h3{
-  color: black;
-} */
+#function-menu button:first-child {
+  border-top: none;
+}
 
-.ultima-entrevista img,
-.destaque img
-{
-  margin: 0 10px;
+#function-menu button:hover {
+  background-color: #555;
+}
+
+#zoom-percentage {
+  position: static;
+  margin-top: 0.5em;
+  min-width: 60px;
+  max-width: 150px;
 }
